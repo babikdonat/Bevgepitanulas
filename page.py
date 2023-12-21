@@ -24,7 +24,18 @@ def streamlitShow(X_train, y_train, logistic_regression, random_forest_classifie
     CreditCard = st.sidebar.number_input("Credit Card?", min_value=0, max_value=1, value=0)
 
 
-    
+    feature_values = {"Age" : Age,
+                      "Experience" : Experience,
+                      "Income":Income,
+                      "ZIP.Code":ZIPcode,
+                      "Family":Family,
+                      "CCAvg" : CCAvg,
+                      "Education":Education,
+                      "Mortgage":Mortgage,
+                      "Securities.Account":Securities_Acc,
+                      "CD_Account":CD_Acc,
+                      "Online":Online,
+                      "CreditCard":CreditCard}
 
     
 
@@ -48,9 +59,9 @@ def streamlitShow(X_train, y_train, logistic_regression, random_forest_classifie
         # Display the predicted value as text
         st.markdown("<h2 style='color:white; font-size: 30px; font-weight: normal; text-align: center;'>Based on the provided features, you are predicted to: </h2>", unsafe_allow_html=True)
         if prediction[0] == 1:
-            set_color_text('lime', 'Be accepted for a bank loan:)')
+            st.markdown('Be accepted for a bank loan:)')
         else:
-            set_color_text('red', 'Not be accepted for a bank loan:(')
+            st.markdown('Not be accepted for a bank loan:(')
 
         st.markdown("<h3 style='color:white; font-size: 30px; font-weight: normal; text-align: center;'>Prediction Probability (0: No, 1: Yes): </h3>", unsafe_allow_html=True)
         st.markdown(f"<h3 style='color:white; font-size: 24px; font-weight: normal; text-align: center;'>0: {prediction_probabilities[0][0]:.5f}</h3>", unsafe_allow_html=True)
